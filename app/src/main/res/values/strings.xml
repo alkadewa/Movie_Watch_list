@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">CineTrack</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="remember_me">Remember Me</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="dont_have_account">Don\'t have an account? </string>
+    <string name="full_name">Full Name</string>
+    <string name="create_account">Create Account</string>
+    <string name="already_have_account">Already have an account? </string>
+    <string name="cinetrack">CINETRACK</string>
+    <string name="welcome_message">Welcome to CineTrack!</string>
+    <string name="logout">Logout</string>
+    <string name="my_profile">My Profile</string>
+    <string name="tab_want_watch">Want to Watch</string>
+    <string name="tab_watching">Watching</string>
+    <string name="tab_watched">Watched</string>
+    <string name="search_hint">Search movies...</string>
+    <string name="movie_day_title">Movie of the Day</string>
+    <string name="play">Play</string>
+    <string name="details">Details</string>
+    <string name="no_movies">No movies in this list</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_explore">Explore</string>
+    <string name="nav_profile">Profile</string>
+    <string name="change_password">Change Password</string>
+    <string name="current_password">Current Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_new_password">Confirm New Password</string>
+    <string name="update_password">Update Password</string>
+    <string name="password_updated">Password updated successfully</string>
+    <string name="reauth_failed">Authentication failed. Check your current password.</string>
+</resources>
