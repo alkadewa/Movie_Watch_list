@@ -3,9 +3,7 @@ package com.example.moviewatchlist;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,8 +17,6 @@ public class LoginActivity extends AppCompatActivity {
 
     private TextInputEditText editTextEmail, editTextPassword;
     private Button buttonLogin;
-    private CheckBox checkBoxRememberMe;
-    private TextView textViewForgotPassword, textViewSignUp;
     private FirebaseAuth mAuth;
 
     @Override
@@ -33,41 +29,29 @@ public class LoginActivity extends AppCompatActivity {
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
         buttonLogin = findViewById(R.id.buttonLogin);
-        checkBoxRememberMe = findViewById(R.id.checkBoxRememberMe);
-        textViewForgotPassword = findViewById(R.id.textViewForgotPassword);
-        textViewSignUp = findViewById(R.id.textViewSignUp);
+        TextView textViewForgotPassword = findViewById(R.id.textViewForgotPassword);
+        TextView textViewSignUp = findViewById(R.id.textViewSignUp);
 
-        buttonLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                loginUser();
-            }
+        buttonLogin.setOnClickListener(v -> loginUser());
+
+        textViewSignUp.setOnClickListener(v -> {
+            // Navigate to SignUp Activity
+            startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
         });
 
-        textViewSignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Navigate to SignUp Activity
-                startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
-            }
-        });
-
-        textViewForgotPassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Handle forgot password
-                String email = editTextEmail.getText().toString().trim();
-                if (TextUtils.isEmpty(email)) {
-                    Toast.makeText(LoginActivity.this, "Enter your email to reset password", Toast.LENGTH_SHORT).show();
-                } else {
-                    mAuth.sendPasswordResetEmail(email).addOnCompleteListener(task -> {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(LoginActivity.this, "Reset email sent", Toast.LENGTH_SHORT).show();
-                        } else {
-                            Toast.makeText(LoginActivity.this, "Failed to send reset email", Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                }
+        textViewForgotPassword.setOnClickListener(v -> {
+            // Handle forgot password
+            String email = editTextEmail.getText().toString().trim();
+            if (TextUtils.isEmpty(email)) {
+                Toast.makeText(LoginActivity.this, "Enter your email to reset password", Toast.LENGTH_SHORT).show();
+            } else {
+                mAuth.sendPasswordResetEmail(email).addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(LoginActivity.this, "Reset email sent", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(LoginActivity.this, "Failed to send reset email", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
     }
